@@ -1,4 +1,4 @@
- /* === OpenDyslexic Font Faces === */
+/* === OpenDyslexic Font Faces === */
 @font-face {
   font-family: 'opendyslexic';
   src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Regular.otf');
@@ -26,7 +26,6 @@
 
 /* === Base Styles === */
 html {
-  /* This allows rem-based scaling! */
   font-size: 100%;
 }
 body {
@@ -34,7 +33,7 @@ body {
   margin: 0;
   background: #f8f9fa;
   color: #222;
-  font-size: 1.25rem; /* 20px if html is 16px */
+  font-size: 1.25rem;
   transition: background 0.3s, color 0.3s, font-size 0.2s;
 }
 * {
@@ -58,11 +57,47 @@ nav a { font-size: 1em; }
 .footer, .social-icons a { font-size: 1em; }
 
 /* === Navigation & Header === */
-/* Dropdown styles */
-nav li.dropdown {
-  position: relative;
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #17305a;
+  width: 100%;
 }
 
+/* --- Navigation Horizontal Layout --- */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* This makes nav horizontal on desktop */
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  gap: 1.5em;
+}
+
+nav li {
+  position: relative;
+  margin: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1em 1em;
+  display: block;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav a:focus, nav a:hover {
+  background: #2b57a5;
+  color: #fff;
+  outline: 2px solid #fff;
+}
+
+/* --- Dropdown styles --- */
 nav li.dropdown > a {
   display: flex;
   align-items: center;
@@ -80,7 +115,7 @@ nav .dropdown-menu {
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
   border-radius: 0 0 6px 6px;
   z-index: 101;
-  padding: 0.5em 0;
+  padding: 0; /* Make sure there's no interfering passing */
   margin: 0;
 }
 
@@ -112,6 +147,26 @@ nav li.dropdown:focus-within > .dropdown-menu {
 /* Optional: show a subtle divider between dropdown items */
 nav .dropdown-menu li:not(:last-child) {
   border-bottom: 1px solid #eee;
+}
+
+/* === Responsive === */
+@media (max-width: 640px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 0;
+  }
+  nav li {
+    width: 100%;
+  }
+  nav .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    min-width: unset;
+    border-radius: 0;
+    background: #f8f9fa;
+  }
 }
 
 header {
@@ -251,14 +306,4 @@ header.header-hidden {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-/* === Responsive === */
-@media (max-width: 640px) {
-  nav ul {
-    flex-direction: column;
-  }
-  .container {
-    padding: 1em;
-  }
 }
