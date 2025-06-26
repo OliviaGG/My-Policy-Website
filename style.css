@@ -58,32 +58,60 @@ nav a { font-size: 1em; }
 .footer, .social-icons a { font-size: 1em; }
 
 /* === Navigation & Header === */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #17305a;
+/* Dropdown styles */
+nav li.dropdown {
+  position: relative;
 }
-nav ul {
-  list-style: none;
+
+nav li.dropdown > a {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 0.4em;
+  cursor: pointer;
+}
+
+nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 180px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  border-radius: 0 0 6px 6px;
+  z-index: 101;
+  padding: 0.5em 0;
   margin: 0;
-  padding: 0;
 }
-nav li {
-  margin: 0 1em;
+
+nav .dropdown-menu li {
+  margin: 0;
 }
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 1em 0.5em;
-  display: inline-block;
+
+nav .dropdown-menu a {
+  color: #17305a;
+  background: none;
+  display: block;
+  padding: 0.7em 1.2em;
+  text-align: left;
+  font-weight: 500;
 }
-nav a:focus, nav a:hover {
-  background: #2b57a5;
-  outline: 2px solid #fff;
+
+nav .dropdown-menu a:hover,
+nav .dropdown-menu a:focus {
+  background: #e4ecfa;
+  color: #2b57a5;
+  outline: none;
+}
+
+nav li.dropdown:hover > .dropdown-menu,
+nav li.dropdown:focus-within > .dropdown-menu {
+  display: block;
+}
+
+/* Optional: show a subtle divider between dropdown items */
+nav .dropdown-menu li:not(:last-child) {
+  border-bottom: 1px solid #eee;
 }
 
 header {
