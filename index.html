@@ -21,10 +21,19 @@
     <p>Empowering voices. Advancing change.</p>
   </header>
 
- <!-- Nav-->
-  <nav aria-label="Main navigation">
-  <ul>
-    <li><a href="#about" tabindex="0">About</a></li>
+  <!--Nav-->
+ <nav aria-label="Main navigation">
+  <ul class="main-nav">
+    <li class="dropdown">
+      <a href="#about" tabindex="0" aria-haspopup="true" aria-expanded="false">
+        About <i class="fas fa-caret-down"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#history">History</a></li>
+      </ul>
+    </li>
     <li class="dropdown">
       <a href="#events" tabindex="0" aria-haspopup="true" aria-expanded="false">
         Events <i class="fas fa-caret-down"></i>
