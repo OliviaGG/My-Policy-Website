@@ -1,0 +1,74 @@
+.leadership-section h1 {
+  text-align: center;
+  color: #2b57a5;
+  font-size: 2em;
+  margin-bottom: 1.5em;
+}
+
+.leader-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2em;
+}
+
+.leader-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(43, 87, 165, 0.08);
+  text-align: center;
+  padding: 2em 1em 1.5em 1em;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leader-card:hover,
+.leader-card:focus-within {
+  box-shadow: 0 4px 32px rgba(43, 87, 165, 0.16);
+  transform: translateY(-6px) scale(1.015);
+}
+
+.leader-card img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1em;
+  border: 3px solid #e4ecfa;
+  background: #f8f9fa;
+}
+
+.leader-card h2 {
+  color: #2b57a5;
+  font-size: 1.2em;
+  margin: 0 0 0.2em 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 600;
+}
+
+.leader-card .title {
+  font-size: 1em;
+  color: #17305a;
+  font-weight: 500;
+  margin-bottom: 0.6em;
+}
+
+.leader-card .bio {
+  font-size: 1em;
+  color: #191A42;
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+  .leader-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25em;
+  }
+  .leadership-section {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+}
