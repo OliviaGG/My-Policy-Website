@@ -30,7 +30,7 @@
       </a>
       <ul class="dropdown-menu">
         <li><a href="#mission">Mission</a></li>
-        <li><a href="#team">Our Team</a></li>
+        <li><a href="Leadership Team/team.php">Our Team</a></li>
         <li><a href="#history">History</a></li>
       </ul>
     </li>
