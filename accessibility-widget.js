@@ -1,4 +1,4 @@
- // Accessibility Widget Script
+// Accessibility Widget Script
 const btn = document.getElementById('a11yWidgetBtn');
 const panel = document.getElementById('a11yWidgetPanel');
 const dyslexic = document.getElementById('toggleDyslexic');
@@ -40,6 +40,52 @@ window.addEventListener('DOMContentLoaded', () => {
     textSizeValue.textContent = '100%';
   }
 });
+
+// Accessibility Widget Functionality
+(function() {
+    const dyslexicCheckbox = document.getElementById('toggleDyslexic');
+    const textSizeSlider = document.getElementById('textSizeSlider');
+    const highContrastCheckbox = document.getElementById('toggleHighContrast');
+    const resetButton = document.getElementById('resetA11y');
+
+    function applyDyslexicFont(enabled) {
+        document.body.style.fontFamily = enabled ? 'OpenDyslexic, sans-serif' : '';
+    }
+
+    function applyTextSize(size) {
+        document.body.style.fontSize = size + '%';
+    }
+
+    function applyHighContrast(enabled) {
+        document.body.style.filter = enabled ? 'contrast(2)' : '';
+        document.body.style.backgroundColor = enabled ? '#000' : '';
+        document.body.style.color = enabled ? '#fff' : '';
+    }
+
+    function resetAccessibility() {
+        applyDyslexicFont(false);
+        applyTextSize(100);
+        applyHighContrast(false);
+        dyslexicCheckbox.checked = false;
+        textSizeSlider.value = 100;
+        highContrastCheckbox.checked = false;
+    }
+
+    dyslexicCheckbox.addEventListener('change', () => {
+        applyDyslexicFont(dyslexicCheckbox.checked);
+    });
+
+    textSizeSlider.addEventListener('input', () => {
+        applyTextSize(textSizeSlider.value);
+        document.getElementById('textSizeValue').textContent = textSizeSlider.value + '%';
+    });
+
+    highContrastCheckbox.addEventListener('change', () => {
+        applyHighContrast(highContrastCheckbox.checked);
+    });
+
+    resetButton.addEventListener('click', resetAccessibility);
+})();
 
 // Feature toggles
 function setFeature(className, input, storageKey) {

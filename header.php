@@ -69,3 +69,9 @@
     </label>
     <button type="button" id="resetA11y">Reset to Default</button>
   </div>
+
+  <header>
+    <h1>My Website</h1>
+  </header>
+
+  <main id="main-content">
