@@ -1,0 +1,39 @@
+name: Deploy Theme and Plugins to WordPress
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-theme:
+    name: Deploy Theme via SFTP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy Theme
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT || 22 }}
+          protocol: 'sftp'
+          local-dir: './theme'
+          server-dir: ${{ secrets.REMOTE_THEME_PATH }}
+
+  deploy-plugins:
+    name: Deploy Plugins via SFTP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy Plugins
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT || 22 }}
+          protocol: 'sftp'
+          local-dir: './plugins'
+          server-dir: ${{ secrets.REMOTE_PLUGINS_PATH }}
