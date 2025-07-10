@@ -16,7 +16,7 @@ jobs:
         with:
           host: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
+          key: ${{ secrets.SFTP_PRIVATE_KEY }}
           port: ${{ secrets.SFTP_PORT || 22 }}
           source: "./Theme/*"
           target: ${{ secrets.REMOTE_THEME_PATH }}
@@ -31,7 +31,7 @@ jobs:
         with:
           host: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
+          key: ${{ secrets.SFTP_PRIVATE_KEY }}
           port: ${{ secrets.SFTP_PORT || 22 }}
           source: "./Plugins/*"
           target: ${{ secrets.REMOTE_PLUGINS_PATH }}
