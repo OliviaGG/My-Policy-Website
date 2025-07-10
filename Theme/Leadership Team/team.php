@@ -1,6 +1,5 @@
-<?php include '../header.php'; ?>
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="team.css">
+<?php get_template_part('header'); ?>
+<?php get_template_part('nav'); ?>
 <main id="main-content" class="container leadership-section" tabindex="-1">
   <h1>Our Leadership</h1>
   <div class="leader-grid">
@@ -25,11 +24,4 @@
     <!-- Add more leader-cards as needed -->
   </div>
 </main>
-<footer class="footer">
-  <div>
-    &copy; 2025 My Policy Website
-  </div>
-</footer>
-<script src="../accessibility-widget.js"></script>
-</body>
-</html>
+<?php get_template_part('footer'); ?>
